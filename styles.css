@@ -98,7 +98,7 @@ nav {
 .role-badge {
     background: #d4a574;
     color: white;
-    padding: 5px 12px;
+    padding: 12px 12px;
     border-radius: 20px;
     font-size: 11px;
     font-weight: 600;
@@ -724,5 +724,178 @@ footer p {
 
     .btn-success, .btn-danger {
         width: 100%;
+    }
+}
+
+/* ================================
+   RESPONSIVE & UI POLISH FIXES
+   CSS-ONLY (No HTML changes)
+================================ */
+
+/* Improve overall touch friendliness */
+button, .nav-link, .tab-btn {
+    touch-action: manipulation;
+}
+
+/* ---------- HEADER & NAV ---------- */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+
+    .btn-secondary {
+        padding: 8px 18px;
+        font-size: 12px;
+    }
+}
+
+/* ---------- HERO SECTION ---------- */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+}
+
+/* ---------- SECTIONS & TITLES ---------- */
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 20px;
+    }
+
+    .section-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+/* ---------- CLUB & EVENT CARDS ---------- */
+@media (max-width: 768px) {
+    .club-card,
+    .event-card {
+        padding: 25px;
+    }
+
+    .club-card h3 {
+        font-size: 20px;
+    }
+
+    .event-content h4 {
+        font-size: 18px;
+    }
+
+    .event-image {
+        height: 150px;
+        font-size: 40px;
+    }
+}
+
+/* ---------- EVENT META FIX ---------- */
+@media (max-width: 480px) {
+    .event-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .event-meta-item {
+        font-size: 12px;
+    }
+}
+
+/* ---------- FORMS ---------- */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 25px 20px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input, select, textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+/* ---------- MODAL ---------- */
+@media (max-width: 480px) {
+    .modal-content h2 {
+        font-size: 22px;
+    }
+}
+
+/* ---------- TABS UX ---------- */
+@media (max-width: 768px) {
+    .tabs {
+        gap: 5px;
+        background: #f5f1e8;
+        padding: 10px;
+    }
+
+    .tab-btn {
+        background: white;
+        border: 1px solid #d4c5a9;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .tab-btn.active {
+        background: #8b7355;
+        color: white;
+        border-color: #8b7355;
+    }
+}
+
+/* ---------- REQUEST CARDS ---------- */
+@media (max-width: 768px) {
+    .request-card {
+        padding: 20px;
+    }
+
+    .request-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* ---------- FOOTER ---------- */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 20px;
+        font-size: 14px;
     }
 }
