@@ -593,9 +593,7 @@ async function handleEventPost(e) {
         title: document.getElementById('eventTitle').value,
         club: document.getElementById('eventClub').value,
         type: document.getElementById('eventType').value,
-        date: firebase.firestore.Timestamp.fromDate(
-          new Date(document.getElementById('eventDate').value)
-        ),
+        date: firebase.firestore.Timestamp.fromDate(new Date(document.getElementById('eventDate').value)),
         time: document.getElementById('eventTime').value,
         venue: document.getElementById('eventVenue').value,
         description: document.getElementById('eventDesc').value,
@@ -974,4 +972,5 @@ function showSection(sectionId) {
 // Initialize the app when DOM is loaded
 
 document.addEventListener('DOMContentLoaded', initializeApp);
+
 
