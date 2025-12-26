@@ -376,7 +376,14 @@ async function loadEvents() {
         const events = [];
         eventsSnapshot.forEach(doc => {
             const eventData = doc.data();
-            const eventDate = eventData.date.toDate();
+            let eventDate;
+            
+            if (eventData.date?.toDate) {
+              eventDate = eventData.date.toDate();
+            } else {
+              eventDate = new Date(eventData.date); // fallback for old data
+            }
+
             
             // Filter for future events on client side
             if (eventDate >= today) {
@@ -972,5 +979,6 @@ function showSection(sectionId) {
 // Initialize the app when DOM is loaded
 
 document.addEventListener('DOMContentLoaded', initializeApp);
+
 
 
