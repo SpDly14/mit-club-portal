@@ -415,7 +415,15 @@ function displayEvents(events) {
     }
 
     const eventsHTML = events.map(event => {
-        const eventDate = new Date(event.date);
+        let eventDate;
+
+        // Handle Firestore Timestamp safely
+        if (event.date?.toDate) {
+            eventDate = event.date.toDate();
+        } else {
+            eventDate = new Date(event.date); // fallback
+        }
+        
         const formattedDate = eventDate.toLocaleDateString('en-US', { 
             month: 'short', 
             day: 'numeric', 
@@ -979,6 +987,5 @@ function showSection(sectionId) {
 // Initialize the app when DOM is loaded
 
 document.addEventListener('DOMContentLoaded', initializeApp);
-
 
 
