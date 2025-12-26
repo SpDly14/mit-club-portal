@@ -370,13 +370,13 @@ async function loadEvents() {
         today.setHours(0, 0, 0, 0);
         
         const eventsSnapshot = await db.collection('events')
-            .orderBy('date')
+            .orderBy('date', 'asc')
             .get();
         
         const events = [];
         eventsSnapshot.forEach(doc => {
             const eventData = doc.data();
-            const eventDate = new Date(eventData.date);
+            const eventDate = eventData.date.toDate();
             
             // Filter for future events on client side
             if (eventDate >= today) {
@@ -593,7 +593,9 @@ async function handleEventPost(e) {
         title: document.getElementById('eventTitle').value,
         club: document.getElementById('eventClub').value,
         type: document.getElementById('eventType').value,
-        date: document.getElementById('eventDate').value,
+        date: firebase.firestore.Timestamp.fromDate(
+          new Date(document.getElementById('eventDate').value)
+        )
         time: document.getElementById('eventTime').value,
         venue: document.getElementById('eventVenue').value,
         description: document.getElementById('eventDesc').value,
@@ -970,4 +972,5 @@ function showSection(sectionId) {
 }
 
 // Initialize the app when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', initializeApp);
